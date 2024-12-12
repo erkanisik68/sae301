@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Définit le jeu de caractères utilisé -->
+    <meta charset="UTF-8">
+    <!-- Permet un affichage correct sur les appareils mobiles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre de la page -->
+    <title>SAE 301 - Mes informations</title>
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <!-- En-tête de la page -->
+    <header class="entete">
+        <div class="Nom">Ruche</div>
+        <div class="navigation">
+            <!-- Liens pour naviguer entre les sections -->
+            <a href="#" onclick="changerSection('profil')">Accueil</a>
+            <a href="#" onclick="changerSection('profil')">Mon profil</a>
+        </div>
+    </header>
+    
+    <!-- Menu hamburger pour les petits écrans -->
+    <div class="menu-hamburger" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <!-- Barre latérale avec les boutons de navigation -->
+    <div class="barre-laterale">
+        <a href="#" class="bouton" onclick="changerSection('profil')">Mon profil</a>
+        <a href="#" class="bouton" onclick="changerSection('vos-ruches')">Mes ruches</a>
+        <a href="#" class="bouton" onclick="changerSection('sécurité')">Sécurité</a>
+        <a href="#" class="bouton" onclick="changerSection('aide')">Données et confidentialité</a>
+    </div>
+
+    <main class="contenu">
+        <!-- Section : Mon profil -->
+        <section id="profil" class="section-infos">
+            <div class="carte-infos">
+                <h2>Mes informations</h2>
+                <!-- Formulaire pour saisir les informations personnelles -->
+                <form class="formulaire">
+                    <div class="champ-formulaire">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" class="zone-saisie" placeholder="Entrez votre nom">
+                    </div>
+                    <div class="champ-formulaire">
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" name="prenom" class="zone-saisie" placeholder="Entrez votre prénom">
+                    </div>
+                    <div class="champ-formulaire">
+                        <label for="date-naissance">Date de naissance :</label>
+                        <input type="date" id="date-naissance" name="date-naissance" class="zone-saisie">
+                    </div>
+                    <div class="champ-formulaire">
+                        <label for="email">E-mail :</label>
+                        <input type="email" id="email" name="email" class="zone-saisie" placeholder="Entrez votre e-mail">
+                    </div>
+                    <div class="champ-formulaire">
+                        <label for="telephone">Téléphone :</label>
+                        <input type="tel" id="telephone" name="telephone" class="zone-saisie" placeholder="Entrez votre numéro de téléphone">
+                    </div>
+                    <div class="champ-formulaire">
+                        <button type="submit" class="bouton">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section : Vos ruches -->
+        <section id="vos-ruches" class="section-tableau">
+            <div class="carte-ruches">
+                <h2>Vos ruches</h2>
+                <table class="tableau-ruches">
+                    <tbody>
+                        <tr>
+                            <td>Ruche N°1</td>
+                        </tr>
+                        <tr>
+                            <td>Ruche N°2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn-acces">Accédez à vos ruches en temps réel</button>
+            </div>
+        </section>
+
+        <!-- Section : Sécurité -->
+        <section id="sécurité" class="section-sécurité">
+            <div class="carte-sécurité">
+                <h2>Sécurité</h2>
+                <table class="tableau-ruches">
+                    <tbody>
+                        <tr>
+                            <td>Mot de passe</td>
+                        </tr>
+                        <tr>
+                            <td>Validation à 2 étapes</td>
+                        </tr>
+                        <tr>
+                            <td>Numéro de téléphone de récupération</td>
+                        </tr>
+                        <tr>
+                            <td>Adresse mail de récupération</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section : Données et confidentialité -->
+        <section id="aide" class="section-infos">
+            <div class="carte-infos">
+                <h2>Données et confidentialité</h2>
+                <table class="tableau-ruches">
+                    <tbody>
+                        <tr>
+                            <td>Vos ruches</td>
+                        </tr>
+                        <tr>
+                            <td>Informations</td>
+                        </tr>
+                        <tr>
+                            <td>Vos données</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script JS pour la navigation et la barre latérale -->
+    <script>
+        // Fonction pour afficher/masquer la barre latérale
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.barre-laterale');
+            sidebar.classList.toggle('active');
+        }
+
+        // Fonction pour afficher la section active et cacher les autres
+        function changerSection(sectionId) {
+            // Cacher toutes les sections
+            var sections = document.querySelectorAll('.section-infos, .section-tableau, .section-sécurité');
+            sections.forEach(function(section) {
+                section.style.display = 'none'; 
+            });
+
+            // Afficher la section sélectionnée
+            var sectionActive = document.getElementById(sectionId);
+            if (sectionActive) {
+                sectionActive.style.display = 'block';
+            }
+        }
+
+        // Afficher la section par défaut (Mon profil)
+        changerSection('profil');
+    </script>
+</body>
+</html>
