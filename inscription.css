@@ -1,0 +1,222 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E3DBC9;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Espace entre les sections */
+    align-items: center; /* Aligne verticalement */
+    padding: 10px 20px; /* Espacement interne */
+    background-color: #7C8B5E; /* Fond vert */
+    color: white; /* Couleur du texte blanche */
+    height: 70px; /* Hauteur fixe pour un bon rendu */
+}
+
+.nom {
+    font-size: 30px; /* Grande taille pour "Ruche" */
+    font-weight: bold;
+    margin-right: 20px; /* Espace après le logo */
+    padding: 10px;
+}
+
+/* Section des boutons */
+.buttons {
+    margin-left: auto; /* Aligne les boutons à droite */
+    display: flex;
+    gap: 10px; /* Espace entre les boutons */
+}
+
+/* Style des boutons */
+button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #7C8B5E;
+    color: white;
+    border-radius: 2px;
+}
+
+button:hover {
+    font-weight: bold;
+    transition: 0,5s;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px; /* Espace entre les images et le formulaire */
+    width: 100%;
+    max-width: 1200px;
+}
+.image-container img {
+    max-width: 300px; /* Ajustez la taille de l'image */
+    height: auto;
+}
+.image-container.ruche img {
+    margin-top: 50px; /* Descend l'image vers le bas */
+    margin-left: -30px; /* Déplace l'image vers la gauche */
+    position: relative; /* Permet un positionnement ajusté */
+}
+.form-container {
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.form-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form .btn-submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+
+form .btn-google {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form p {
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+form a {
+    color: #7C8B5E;
+    font-weight: bold;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+.btn-google {
+    display: flex; /* Utilisation de flexbox pour aligner les éléments */
+    justify-content: center; /* Aligne le contenu horizontalement au centre */
+    gap: 10px; /* Ajoute un espacement entre l'icône et le texte */
+}
+
+/* Footer */
+footer {
+    position: fixed; /* Fixe le footer à un endroit spécifique */
+    bottom: 0; /* Place le footer en bas de la page */
+    left: 0; /* Assure qu'il commence à gauche */
+    width: 100%; /* Prend toute la largeur de la page */
+    background-color: #6b7544; /* Vert olive */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Empile les éléments verticalement */
+        height: auto; /* Ajuste la hauteur automatiquement */
+        padding: 10px;
+        text-align: center;
+    }
+
+    .nom {
+        margin-right: 0;
+        font-size: 24px; /* Réduit légèrement la taille de "Ruche" */
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        flex-direction: column; /* Aligne les boutons en colonne */
+        gap: 10px;
+    }
+
+    button {
+        width: 100%; /* Les boutons prennent toute la largeur */
+        padding: 10px;
+    }
+
+    .form-container {
+        width: 100%; /* Prend toute la largeur disponible */
+        max-width: 350px; /* Ajoute une limite pour ne pas dépasser */
+        padding: 20px; /* Ajuste le padding pour plus d'espace */
+        margin: 0 auto; /* Centre le formulaire */
+    }
+
+    footer {
+        font-size: 0.8rem; /* Texte légèrement plus petit */
+    }
+}
+
+/* Styles pour les très petits écrans (max-width: 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 5px;
+    }
+
+    .nom {
+        font-size: 20px; /* Taille plus petite pour "Ruche" */
+    }
+
+    button {
+        font-size: 0.9rem; /* Réduit légèrement la taille du texte */
+        padding: 8px;
+    }
+
+    .form-container h1 {
+        font-size: 1.2rem; /* Titre légèrement plus petit */
+    }
+
+    form input {
+        padding: 8px; /* Réduit l'espacement interne */
+        font-size: 0.9rem; /* Texte des champs légèrement plus petit */
+    }
+
+    form .btn-submit, form .btn-google {
+        font-size: 0.9rem; /* Réduit la taille des boutons */
+    }
+
+    footer {
+        font-size: 0.7rem;
+    }
+}
+
