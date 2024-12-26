@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/connexion2.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ruche Dashboard</title>
+    </head>
+    <script>
+        function changeRuche(name) {
+    document.getElementById("selectedRuche").textContent = name;
+    document.querySelector(".dropbtn").textContent = name + " \u25BC";
+}
+document.querySelectorAll(".dropdown-content a").forEach(link => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault(); // Empêche la remontée en haut
+        const rucheName = event.target.textContent;
+        changeRuche(rucheName);
+    });
+});
+    </script>
+    <body>
+        <header>
+            <img src="img/ruches_logo (1) (1).png" alt="logo de ruches">
+            <div class="nom">Ruche</div>
+            <div class="buttons">
+                <button class="btn1">Accueil</button>
+                <button class="btn2">Qui sommes-nous?</button>
+            </div>
+        </header>
+        <div class="welcome">Bonjour, [Nom de l'utilisateur]</div>
+
+        <div class="container">
+            <div class="locate">Localiser vos ruches :</div>
+
+            <div class="container">
+                <div class="map">
+                    <div id="map"></div>
+                    <script>
+                        var map = L.map('map').setView([47.7467233, 7.3389937], 13);
+                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 19,
+                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        }).addTo(map);
+                        var marker = L.marker([47.7549078200638, 7.338726634145285]).addTo(map);
+                        var marker = L.marker([47.7549078200638, 7.36726634145285]).addTo(map);
+                        var marker = L.marker([47.746400624213734, 7.320995727799007]).addTo(map);
+                    </script>
+                </div>
+
+                <h1 id="selectedRuche">Ruche 1</h1>
+
+                <div class="dropdown">
+                    <button class="dropbtn">Ruche 1 &#9662;</button>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="changeRuche('Ruche 1'); return false;">Ruche 1</a>
+                        <a href="#" onclick="changeRuche('Ruche 2'); return false;">Ruche 2</a>
+                        <a href="#" onclick="changeRuche('Ruche 3'); return false;">Ruche 3</a>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <h2>Température externe</h2>
+                        <p>34°C</p>
+                        <img src="img/temp-icon-removebg-preview.png" alt="" class="temp2">
+
+                    </div>
+                    <div class="stat">
+                        <h2>Température interne</h2>
+                        <p>34°C</p>
+                        <img class="temp1"
+                            src="img/2694862-jauge-temperature-icone-gratuit-vectoriel-removebg-preview-removebg-preview.png"
+                            alt="">
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <h2>Humidité</h2>
+                        <p>50%</p>
+                        <img class="humide" src="img/téléchargement-removebg-preview.png" alt="">
+                    </div>
+                    <div class="stat">
+                        <h2>Masse</h2>
+                        <p>15 kg</p>
+                        <img class="balance" src="img/echelle-removebg-preview.png" alt="">
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a href="#" class="button">Visualiser l'évolution</a>
+                    <a href="#" class="button" onclick="openPopup()">Ajouter des notes</a>
+                </div>
+            </div>
+            <div class="overlay" onclick="closePopup()"></div>
+            <div class="popup">
+                <h2>Ajouter des notes</h2>
+                <textarea id="notes" placeholder="Écrivez vos notes ici..."></textarea>
+                <div class="popup-buttons">
+                    <button class="save-btn" onclick="saveNotes()">Sauvegarder</button>
+                    <button class="close-btn" onclick="closePopup()">Fermer</button>
+                </div>
+            </div>
+            <script>
+                  function openPopup() {
+            document.querySelector(".popup").style.display = "block";
+            document.querySelector(".overlay").style.display = "block";
+        }
+
+        // Fermer le popup
+        function closePopup() {
+            document.querySelector(".popup").style.display = "none";
+            document.querySelector(".overlay").style.display = "none";
+        }
+
+        // Sauvegarder les notes
+        function saveNotes() {
+            const notes = document.querySelector("#notes").value;
+            alert("Vos notes ont été sauvegardées : " + notes);
+            closePopup();
+        }
+            </script>
+            <footer>
+                <p>Ruche &copy; 2024 | <a href="#">Accueil</a> | <a href="#">Qui sommes-nous</a> | <a
+                        href="#">Contact</a></p>
+            </footer>
+    </body>
+
+    </html>
+
+
+</body>
+
+</html>
